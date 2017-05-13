@@ -1,0 +1,90 @@
+package com.company;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Passenger {
+	private int passengerID;
+	private String realName;
+	private String identityID;
+	private String password;
+	private ArrayList<Order> orderList = new ArrayList<Order>();
+	
+	static int passengerNumber = 0 ;
+	
+	public Passenger(){
+		this("undefinedName","undefinedID","123456");
+	    passengerID = passengerNumber+10000;
+	}
+	
+	public Passenger(String name, String ID, String password){
+		realName = name;
+		identityID = ID;
+		this.password =  password;
+	}
+
+	public int getPassengerID() {
+		return passengerID;
+	}
+
+	public void setPassengerID(int passengerID) {
+		this.passengerID = passengerID;
+	}
+
+	public String getRealName() {
+		return realName;
+	}
+
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
+
+	public String getIdentityID() {
+		return identityID;
+	}
+
+	public void setIdentityID(String identityID) {
+		this.identityID = identityID;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public ArrayList<Order> getOrderList() {
+		return orderList;
+	}
+
+	public void setOrderList(ArrayList<Order> orderList) {
+		this.orderList = orderList;
+	}
+
+	public void update(){
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter which one you want to update:\n(1)passengerID\n(2)realName\n" +
+				"(3)identityID\n(4)password");
+		switch (input.nextInt()){
+			case 1:
+				setIdentityID(input.next());
+				break;
+			case 2:
+				setRealName(input.next());
+				break;
+			case 3:
+				setIdentityID(input.next());
+				break;
+			case 4:
+				setPassword(input.next());
+				break;
+			default:
+				System.out.println("Default Enter");
+		}
+
+		System.out.println("Update succeed!");
+	}
+
+}
